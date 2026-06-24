@@ -1,0 +1,66 @@
+{
+  "name": "@vzaps/sdk",
+  "version": "0.1.0",
+  "description": "Official TypeScript SDK for the VZaps public API.",
+  "type": "module",
+  "license": "MIT",
+  "author": "VZaps",
+  "homepage": "https://docs.vzaps.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vzaps/vzaps-sdk-typescript.git"
+  },
+  "bugs": {
+    "url": "https://github.com/vzaps/vzaps-sdk-typescript/issues"
+  },
+  "keywords": [
+    "vzaps",
+    "whatsapp",
+    "api",
+    "sdk",
+    "typescript"
+  ],
+  "sideEffects": false,
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "scripts": {
+    "build": "tsup",
+    "check": "tsc --noEmit",
+    "test": "vitest run",
+    "prepack": "npm run build"
+  },
+  "dependencies": {
+    "ws": "^8.21.0"
+  },
+  "devDependencies": {
+    "@types/node": "^26.0.0",
+    "@types/ws": "^8.18.1",
+    "esbuild": "^0.28.1",
+    "tsup": "^8.5.1",
+    "tsx": "^4.22.4",
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.9"
+  },
+  "overrides": {
+    "esbuild": "^0.28.1"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
