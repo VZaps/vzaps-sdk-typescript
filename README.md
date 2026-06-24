@@ -1,5 +1,7 @@
 # VZaps TypeScript SDK
 
+[![npm version](https://img.shields.io/npm/v/@vzaps/sdk.svg)](https://www.npmjs.com/package/@vzaps/sdk)
+
 Official TypeScript/JavaScript client for the [VZaps public API](https://docs.vzaps.com). Send WhatsApp messages, manage instances, configure webhooks, and subscribe to realtime events with a typed, promise-based interface.
 
 Works in **Node.js 18+** (ESM and CommonJS). Browser usage is supported for HTTP calls; WebSocket realtime in Node uses the bundled `ws` client automatically.
