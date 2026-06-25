@@ -64,7 +64,12 @@ export interface InstanceCreateRequest extends JsonObject {
 
 export interface InstanceListRequest extends JsonObject {
   page?: number;
+  /** Page size for POST /instances/list (wire field: `size`). */
+  size?: number;
+  /** Alias for `size` in SDK requests. */
   pageSize?: number;
+  filter?: JsonObject;
+  /** Shorthand for `filter.query`. */
   search?: string;
   sort?: string;
   sortDesc?: boolean;
@@ -148,9 +153,10 @@ export interface MessageSendListRequest extends MessageSendBaseRequest {
 }
 
 export interface MessageSendLinkRequest extends MessageSendBaseRequest {
-  link: string;
-  title?: string;
-  description?: string;
+  message: string;
+  linkUrl: string;
+  title: string;
+  linkDescription: string;
   jpegThumbnail?: string;
 }
 

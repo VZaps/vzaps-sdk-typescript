@@ -73,16 +73,28 @@ export class InstancesResource {
   }
 
   list<TResponse = unknown>(data: InstanceListRequest = {}, options: { signal?: AbortSignal } = {}): Promise<TResponse> {
+    const page = data.page ?? 1;
+    const size = data.size ?? data.pageSize ?? 20;
+    const filter =
+      data.filter ??
+      (typeof data.search === 'string' && data.search.trim() !== '' ? { query: data.search.trim() } : {});
+
     return this.http.request<TResponse>('POST', '/instances/list', {
-      body: data,
+      body: {
+        page,
+        size,
+        filter,
+        sort: data.sort,
+        sortDesc: data.sortDesc,
+      },
       signal: options.signal,
     });
   }
 
-  get<TResponse = unknown>(instanceId: string, options: InstanceRequestOptions = {}): Promise<TResponse> {
-    return this.http.request<TResponse>('GET', `/instances/${encodeURIComponent(instanceId)}`, {
+  get<TResponse = unknown>(instanceId: string, options: { signal?: AbortSignal } = {}): Promise<TResponse> {
+    return this.http.request<TResponse>('POST', '/instances/get', {
+      body: { id: instanceId },
       signal: options.signal,
-      instanceToken: options.instanceToken,
     });
   }
 
