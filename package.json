@@ -8,10 +8,10 @@
   "homepage": "https://docs.vzaps.com",
   "repository": {
     "type": "git",
-    "url": "https://github.com/vzaps/vzaps-sdk-typescript.git"
+    "url": "https://github.com/VZaps/vzaps-sdk-typescript"
   },
   "bugs": {
-    "url": "https://github.com/vzaps/vzaps-sdk-typescript/issues"
+    "url": "https://github.com/VZaps/vzaps-sdk-typescript/issues"
   },
   "keywords": [
     "vzaps",

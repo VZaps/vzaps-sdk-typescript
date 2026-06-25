@@ -392,7 +392,7 @@ const page = await vzaps.instances.list<InstanceListResponse>({
 - [VZaps docs](https://docs.vzaps.com)
 - [API reference (OpenAPI)](https://docs.vzaps.com/api-reference)
 - [Postman collections](https://docs.vzaps.com/postman/)
-- [Report an issue](https://github.com/vzaps/vzaps-sdk-typescript/issues)
+- [Report an issue](https://github.com/VZaps/vzaps-sdk-typescript/issues)
 
 ---
 
