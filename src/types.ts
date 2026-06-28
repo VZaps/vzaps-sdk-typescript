@@ -349,6 +349,41 @@ export interface ChatExpirationRequest extends ChatRequest {
   expiration: '24_HOURS' | '7_DAYS' | '90_DAYS' | 'OFF' | (string & {});
 }
 
+export interface SessionBusinessCategory {
+  id: string;
+  name: string;
+}
+
+export interface SessionBusinessProfile {
+  businessHoursTimezone?: string;
+  categories?: SessionBusinessCategory[];
+  profileOptions?: Record<string, string>;
+  address?: string;
+  email?: string;
+}
+
+/** `data` payload for `GET /instances/{id}/session/status`. Profile fields are present only when `connected` is true. */
+export interface SessionStatusData {
+  connected: boolean;
+  phone?: string;
+  whatsappJid?: string;
+  pushName?: string;
+  businessName?: string;
+  businessProfile?: SessionBusinessProfile;
+  profilePictureId?: string;
+  profilePictureUrl?: string;
+  profileUrl?: string;
+  verifiedName?: string;
+  about?: string;
+  website?: string;
+}
+
+export interface SessionStatusResponse {
+  code: number;
+  success: boolean;
+  data: SessionStatusData;
+}
+
 export type VZapsEventType =
   | 'Message'
   | 'ReadReceipt'

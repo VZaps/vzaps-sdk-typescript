@@ -193,6 +193,14 @@ Available send helpers include `sendText`, `sendImage`, `sendAudio`, `sendDocume
 | `list(request)` | `GET /instances/:id/group/list` | List groups (paginated). |
 | `get(request)` | `GET /instances/:id/group/info` | Get group metadata by `groupId`. |
 
+### `vzaps.sessions`
+
+| Method | HTTP | Description |
+| --- | --- | --- |
+| `status(instanceId, options?)` | `GET /instances/:id/session/status` | Check WhatsApp login state and, when connected, live profile fields. |
+
+`GET /instances/{id}/session/status` returns `SessionStatusResponse`. When `data.connected` is `true`, `data` includes (in order) `phone`, `whatsappJid`, `pushName`, `businessName`, `businessProfile`, `profilePictureId`, `profilePictureUrl`, `profileUrl`, and optional `verifiedName`, `about`, `website`. When disconnected, `data` only has `connected: false`.
+
 Other public namespaces are available as first-class resources too: `sessions`, `users`, `queues`, `typebots`, `chatwoot`, and `chats`.
 
 ### `vzaps.request(method, path, options?)`

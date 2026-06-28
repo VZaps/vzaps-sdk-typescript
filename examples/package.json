@@ -1,0 +1,11 @@
+{
+  "name": "vzaps-typescript-examples",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@vzaps/sdk": "^0.1.0"
+  },
+  "devDependencies": {
+    "tsx": "^4.19.0"
+  }
+}

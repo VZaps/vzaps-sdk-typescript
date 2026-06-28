@@ -44,6 +44,7 @@ import type {
   TypebotRequest,
   TypebotSessionRequest,
   TypebotStartSessionRequest,
+  SessionStatusResponse,
   UserAvatarRequest,
   UserPhonesRequest,
   WebhookConfigRequest,
@@ -432,7 +433,7 @@ export class GroupsResource {
 export class SessionsResource {
   constructor(private readonly http: HttpClient) {}
 
-  status<TResponse = unknown>(instanceId: string, options: InstanceRequestOptions = {}): Promise<TResponse> {
+  status<TResponse = SessionStatusResponse>(instanceId: string, options: InstanceRequestOptions = {}): Promise<TResponse> {
     return this.http.request<TResponse>('GET', `/instances/${encodeURIComponent(instanceId)}/session/status`, {
       signal: options.signal,
       instanceToken: options.instanceToken,
