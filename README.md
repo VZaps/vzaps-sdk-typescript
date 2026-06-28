@@ -1,7 +1,6 @@
 # VZaps TypeScript SDK
 
-[![CI](https://github.com/VZaps/vzaps-sdk-typescript/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/VZaps/vzaps-sdk-typescript/actions/workflows/ci.yml) [![SDK Documentation](https://img.shields.io/badge/SDK-Documentation-blue)](https://docs.vzaps.com/en/sdk/typescript/installation) [![license](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
-[![npm version](https://img.shields.io/npm/v/@vzaps/sdk.svg)](https://www.npmjs.com/package/@vzaps/sdk)
+[![CI](https://github.com/VZaps/vzaps-sdk-typescript/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/VZaps/vzaps-sdk-typescript/actions/workflows/ci.yml) [![npm version](https://img.shields.io/npm/v/@vzaps/sdk.svg)](https://www.npmjs.com/package/@vzaps/sdk) [![SDK Documentation](https://img.shields.io/badge/SDK-Documentation-blue)](https://docs.vzaps.com/en/sdk/typescript/installation) [![license](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
 
 Official TypeScript/JavaScript client for the [VZaps public API](https://docs.vzaps.com). Send WhatsApp messages, manage instances, configure webhooks, and subscribe to realtime events with a typed, promise-based interface.
 
@@ -16,7 +15,7 @@ Works in **Node.js 18+** (ESM and CommonJS). Browser usage is supported for HTTP
 - [Installation](#installation)
 - [Quick start](#quick-start)
 - [Authentication](#authentication)
-- [Configuration](#configuration)
+- [Client options](#client-options)
 - [Resources](#resources)
 - [Instance tokens](#instance-tokens)
 - [Webhooks](#webhooks)
@@ -110,14 +109,7 @@ const token = await vzaps.auth.getAccessToken();
 
 ---
 
-## Configuration
-
-The SDK connects to the VZaps production platform automatically:
-
-| Service | Endpoint |
-| --- | --- |
-| REST API | `https://api.vzaps.com` |
-| Realtime WebSocket | `wss://realtime.vzaps.com/events/ws` |
+## Client options
 
 Pass options to `new VZapsClient(options)`:
 
@@ -130,8 +122,6 @@ Pass options to `new VZapsClient(options)`:
 | `fetch` | `FetchLike` | `globalThis.fetch` | Custom fetch implementation. |
 | `webSocketFactory` | `WebSocketFactory` | Node: `ws` / browser: `WebSocket` | Custom WebSocket constructor. |
 | `userAgent` | `string` | — | Optional `User-Agent` header on HTTP requests. |
-
-No host configuration is required — install the package, pass your credentials, and the client targets the production API and realtime service.
 
 ---
 
@@ -250,7 +240,7 @@ Event payloads (webhook and realtime) use **snake_case**, matching the platform.
 
 ## Realtime events
 
-Subscribe to the same events over WebSocket at **`wss://realtime.vzaps.com`**. This is the recommended path for in-app notifications, bots, and dashboards that need low-latency delivery without exposing a public webhook URL.
+Subscribe to the same events over the VZaps realtime WebSocket. This is the recommended path for in-app notifications, bots, and dashboards that need low-latency delivery without exposing a public webhook URL.
 
 ### Subscribe
 
